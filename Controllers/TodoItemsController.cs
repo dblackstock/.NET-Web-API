@@ -123,7 +123,7 @@ namespace TodoApi.Controllers
                 todoItemOld.IsComplete = todoItemUpdate.IsComplete ?? false;
             }
 
-            _context.Entry(todoItemOld).State = EntityState.Modified;
+            // _context.Entry(todoItemOld).State = EntityState.Modified;
 
             try
             {
