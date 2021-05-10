@@ -14,7 +14,9 @@ RUN dotnet publish -c Release -o out
 # The core SDK is only needed for the build, so for leanness we now only use the runtime
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
-EXPOSE 80
+EXPOSE 5000
+EXPOSE 5001
+ENV ASPNETCORE_URLS=http://*:5000;https://*:5001
 # Taking outputs from the previous build steps and putting them into the working directory
 COPY --from=build-env /app/out .
 # Entrypoint dictates what the container does when it starts, in this case it runs the dll with the dotnet command
